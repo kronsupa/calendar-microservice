@@ -1,0 +1,1 @@
+Server=db;Port=3306;Database=data;Uid=root;Pwd=Iq2lcBAJNnrVaIcL;

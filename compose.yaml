@@ -1,0 +1,22 @@
+services:
+  calendar-microservice:
+    restart: unless-stopped
+    depends_on:
+      - db
+    build: ./
+    secrets:
+      - mysql_constr
+    ports:
+      - '4350:8080'
+
+  db:
+    image: mysql:9.4
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: Iq2lcBAJNnrVaIcL
+    volumes:
+      - ./Data:/var/lib/mysql
+
+secrets:
+  mysql_constr:
+    file: ./DockerSecrets/mysql_constr.txt
